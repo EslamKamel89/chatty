@@ -1,6 +1,4 @@
-Sure, here’s a well-structured and visually appealing README for your GitHub repository:
 
----
 
 # Chat App
 
