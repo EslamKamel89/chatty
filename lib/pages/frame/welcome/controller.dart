@@ -12,7 +12,6 @@ class WelcomeController extends GetxController {
   void onReady() {
     const t = 'WelcomeController - onReady';
     pr('onReady', t);
-
     super.onReady();
   }
 }
