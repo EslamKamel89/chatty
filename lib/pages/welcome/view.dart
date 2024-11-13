@@ -1,4 +1,4 @@
-import 'package:chatty/pages/frame/welcome/index.dart';
+import 'package:chatty/pages/welcome/index.dart';
 import 'package:chatty/utils/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

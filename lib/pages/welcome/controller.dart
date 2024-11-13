@@ -1,5 +1,5 @@
-import 'package:chatty/pages/frame/welcome/state.dart';
-import 'package:chatty/utils/helpers/print_helper.dart';
+import 'package:chatty/pages/welcome/state.dart';
+import 'package:chatty/utils/routes/names.dart';
 import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
@@ -10,8 +10,9 @@ class WelcomeController extends GetxController {
 
   @override
   void onReady() {
-    const t = 'WelcomeController - onReady';
-    pr('onReady', t);
     super.onReady();
+    Future.delayed(const Duration(seconds: 3)).then(
+      (_) => Get.offAllNamed(AppRoutes.Message),
+    );
   }
 }

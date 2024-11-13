@@ -3,9 +3,7 @@ import 'package:chatty/utils/store/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-/// 检查是否登录
 class RouteAuthMiddleware extends GetMiddleware {
-  // priority 数字小优先级高
   @override
   int? priority = 0;
 
@@ -16,6 +14,7 @@ class RouteAuthMiddleware extends GetMiddleware {
     if (UserStore.to.isLogin || route == AppRoutes.SIGN_IN || route == AppRoutes.INITIAL) {
       return null;
     } else {
+      // return null;
       Future.delayed(const Duration(seconds: 2), () => Get.snackbar("Tips", "Login expired, please login again!"));
       return const RouteSettings(name: AppRoutes.SIGN_IN);
     }
