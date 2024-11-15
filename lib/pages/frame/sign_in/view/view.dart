@@ -1,8 +1,10 @@
 import 'package:chatty/pages/frame/sign_in/index.dart';
+import 'package:chatty/pages/frame/sign_in/view/widgets/custom_text_button.dart';
 import 'package:chatty/pages/frame/sign_in/view/widgets/logo_widget.dart';
+import 'package:chatty/pages/frame/sign_in/view/widgets/or_divider.dart';
 import 'package:chatty/pages/frame/sign_in/view/widgets/social_login_button.dart';
 import 'package:chatty/utils/values/colors.dart';
-import 'package:chatty/utils/widgets/vertical_margin.dart';
+import 'package:chatty/utils/widgets/margin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -31,7 +33,35 @@ class SignInPage extends GetView<SignInController> {
             imagePath: 'assets/icons/apple.png',
             content: 'Sign in with Apple',
           ),
-        ].map((widget) => VerticalMargin(margin: 10.h, child: widget)).toList(),
+          const OrDivider(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomTextButton(content: 'Log In', onTap: () {}),
+              Text(
+                " By Mobile",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 100.h,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Don't Have an Account ",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                ),
+              ),
+              CustomTextButton(content: 'Sign Up', onTap: () {}),
+            ],
+          ),
+        ].map((w) => VerticalMargin(child: w)).toList(),
       ),
     );
   }

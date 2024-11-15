@@ -1,4 +1,6 @@
+import 'package:chatty/firebase_options.dart';
 import 'package:chatty/global.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -6,7 +8,11 @@ import 'package:get/get.dart';
 import 'utils/routes/pages.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Global.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
