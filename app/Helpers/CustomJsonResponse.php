@@ -1,9 +1,8 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Helpers;
 
 use App\Traits\ApiResponse;
 
-class Controller {
+class CustomJsonResponse {
 	use ApiResponse;
 }
