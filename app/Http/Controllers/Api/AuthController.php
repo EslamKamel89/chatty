@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\LogHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -22,7 +23,6 @@ class AuthController extends Controller {
 			],
 			$request->all(),
 		);
-
 		$user = User::where( 'type', $validated['type'] )
 			->where( 'open_id', $validated['open_id'] )
 			->first();
@@ -39,8 +39,17 @@ class AuthController extends Controller {
 		return $this->success( data: new UserResource( $user ),
 			message: Constant::$userCreated
 		);
+
 	}
 	public function getProfile( Request $request ) {
 		return $this->success( $request->all() );
+	}
+	public function contact( Request $request ) {
+		$user = auth()->user();
+		if ( ! $user ) {
+			return $this->failure( 'User Not Authorized' );
+		} else {
+			return $this->success( new UserResource( $user ) );
+		}
 	}
 }

@@ -16,14 +16,14 @@ class UserResource extends JsonResource {
 			'name' => $this?->name ?? 'null',
 			'email' => $this?->email ?? 'null',
 			'type' => $this?->type ?? 'null',
-			'accessToken' => $this?->access_token ?? 'null',
+			'access_token' => $this?->access_token ?? 'null',
 			'token' => $this?->token ?? 'null',
 			'fcmtoken' => $this?->fcmtoken ?? 'null',
 			'avatar' => $this?->avatar ?? 'null',
 			'description' => $this?->description ?? 'null',
-			'expireDate' => $this?->expire_date ?? 'null',
+			'expire_date' => $this?->expire_date ?? 'null',
 			'online' => $this?->online ?? 'null',
-			'openId' => $this?->open_id ?? 'null',
+			'open_id' => $this?->open_id ?? 'null',
 		];
 	}
 }

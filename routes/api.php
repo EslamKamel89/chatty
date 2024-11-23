@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use App\Http\Middleware\TestMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,13 @@ Route::get( '/user', function (Request $request) {
 Route::group( [ 
 	'namespace' => 'App\Http\Controllers\Api',
 	'prefix' => 'auth',
+	// 'middleware', 'auth:sanctum'
 ],
 	function () {
 		Route::post( '/login-or-register', 'AuthController@loginOrRegister' );
-		Route::any( '/get-profile', 'AuthController@getProfile' );
+		Route::middleware( 'auth:sanctum' )->group( function () {
+			Route::any( '/get-profile', 'AuthController@getProfile' );
+			Route::get( '/contact', 'AuthController@contact' );
+		} );
 	},
 );

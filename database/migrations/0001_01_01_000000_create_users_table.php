@@ -17,13 +17,14 @@ return new class extends Migration {
 			$table->string( 'password' )->nullable();
 			$table->integer( 'type' )->nullable();
 			$table->longText( 'access_token' )->nullable();
+			$table->string( 'phone' )->nullable();
 			$table->longText( 'token' )->nullable();
 			$table->longText( 'fcmtoken' )->nullable();
 			$table->string( 'avatar' )->nullable();
 			$table->string( 'description' )->nullable();
 			$table->dateTime( 'expire_date' )->nullable();
 			$table->boolean( 'online' )->default( false );
-			$table->integer( 'open_id' )->nullable();
+			$table->longText( 'open_id' )->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		} );
@@ -54,17 +55,3 @@ return new class extends Migration {
 	}
 };
 
-/*
-name string
-email string
-email_verified_at string
-password string
-access_token string
-token string
-fcmtoken string
-avatar string
-description string
-expire_date string
-online string
-open_id string
-*/
