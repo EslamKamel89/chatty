@@ -16,7 +16,7 @@ class UserResource extends JsonResource {
 			'name' => $this?->name ?? 'null',
 			'email' => $this?->email ?? 'null',
 			'type' => $this?->type ?? 'null',
-			'access_token' => $this?->access_token ?? 'null',
+			'access_token' => $this?->token ?? 'null',
 			'token' => $this?->token ?? 'null',
 			'fcmtoken' => $this?->fcmtoken ?? 'null',
 			'avatar' => $this?->avatar ?? 'null',

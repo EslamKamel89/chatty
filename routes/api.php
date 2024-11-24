@@ -20,7 +20,7 @@ Route::group( [
 		Route::post( '/login-or-register', 'AuthController@loginOrRegister' );
 		Route::middleware( 'auth:sanctum' )->group( function () {
 			Route::any( '/get-profile', 'AuthController@getProfile' );
-			Route::get( '/contact', 'AuthController@contact' );
+			Route::post( '/contact', 'AuthController@contact' );
 		} );
 	},
 );

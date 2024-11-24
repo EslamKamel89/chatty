@@ -35,6 +35,7 @@ class AuthController extends Controller {
 		$token = $user->createToken( $user->email )->plainTextToken;
 		$user->update( [ 
 			'token' => $token,
+			'access_token' => $token,
 		] );
 		return $this->success( data: new UserResource( $user ),
 			message: Constant::$userCreated
@@ -45,11 +46,8 @@ class AuthController extends Controller {
 		return $this->success( $request->all() );
 	}
 	public function contact( Request $request ) {
-		$user = auth()->user();
-		if ( ! $user ) {
-			return $this->failure( 'User Not Authorized' );
-		} else {
-			return $this->success( new UserResource( $user ) );
-		}
+		$users = User::where( 'id', '!=', auth()->id() )->get();
+		return $this->success( UserResource::collection( $users ) );
+
 	}
 }
